@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.DS_Store
+
+# keys
+.env
+.env.*
+
+# audit caches, spend ledger, reports and exports
+.sundr/
+out/
+data/
+imported/
+*audit.html
+*audit.json
+sundr-export.jsonl
+calls.jsonl

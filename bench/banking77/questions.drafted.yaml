@@ -1,0 +1,406 @@
+questions:
+- name: verdict
+  type: choice
+  instructions: You route customer messages for a digital bank. Pick the single intent
+    that best matches what the customer wants.
+  options:
+  - activate_my_card
+  - age_limit
+  - apple_pay_or_google_pay
+  - atm_support
+  - automatic_top_up
+  - balance_not_updated_after_bank_transfer
+  - balance_not_updated_after_cheque_or_cash_deposit
+  - beneficiary_not_allowed
+  - cancel_transfer
+  - card_about_to_expire
+  - card_acceptance
+  - card_arrival
+  - card_delivery_estimate
+  - card_linking
+  - card_not_working
+  - card_payment_fee_charged
+  - card_payment_not_recognised
+  - card_payment_wrong_exchange_rate
+  - card_swallowed
+  - cash_withdrawal_charge
+  - cash_withdrawal_not_recognised
+  - change_pin
+  - compromised_card
+  - contactless_not_working
+  - country_support
+  - declined_card_payment
+  - declined_cash_withdrawal
+  - declined_transfer
+  - direct_debit_payment_not_recognised
+  - disposable_card_limits
+  - edit_personal_details
+  - exchange_charge
+  - exchange_rate
+  - exchange_via_app
+  - extra_charge_on_statement
+  - failed_transfer
+  - fiat_currency_support
+  - get_disposable_virtual_card
+  - get_physical_card
+  - getting_spare_card
+  - getting_virtual_card
+  - lost_or_stolen_card
+  - lost_or_stolen_phone
+  - order_physical_card
+  - passcode_forgotten
+  - pending_card_payment
+  - pending_cash_withdrawal
+  - pending_top_up
+  - pending_transfer
+  - pin_blocked
+  - receiving_money
+  - Refund_not_showing_up
+  - request_refund
+  - reverted_card_payment?
+  - supported_cards_and_currencies
+  - terminate_account
+  - top_up_by_bank_transfer_charge
+  - top_up_by_card_charge
+  - top_up_by_cash_or_cheque
+  - top_up_failed
+  - top_up_limits
+  - top_up_reverted
+  - topping_up_by_card
+  - transaction_charged_twice
+  - transfer_fee_charged
+  - transfer_into_account
+  - transfer_not_received_by_recipient
+  - transfer_timing
+  - unable_to_verify_identity
+  - verify_my_identity
+  - verify_source_of_funds
+  - verify_top_up
+  - virtual_card_not_working
+  - visa_or_mastercard
+  - why_verify_identity
+  - wrong_amount_of_cash_received
+  - wrong_exchange_rate_for_cash_withdrawal
+- name: product_area
+  type: choice
+  instructions: Which banking area is the customer's message mainly about?
+  options:
+  - card_itself
+  - card_purchase
+  - atm_cash
+  - outgoing_transfer
+  - incoming_money
+  - top_up
+  - currency_exchange
+  - identity_verification
+  - account_and_security
+  - refund
+  descriptions:
+  - Getting, delivering, activating, replacing, PIN or status of the card as an object
+  - Payments made at shops or online using a card
+  - Withdrawing cash at ATMs
+  - Sending money from this account to someone else
+  - Money arriving from outside sources or other people
+  - Adding funds to the account balance
+  - Converting currencies, exchange rates, held currencies
+  - Proving identity, ID checks, source of funds
+  - Profile details, passcode, phone, account closure, eligibility
+  - Getting money back for a purchase
+- name: card_form
+  type: choice
+  instructions: Which kind of card or payment instrument does the message refer to?
+  options:
+  - physical_card
+  - virtual_card
+  - disposable_virtual_card
+  - mobile_wallet
+  - card_unspecified
+  - card_absent
+  descriptions:
+  - A plastic card explicitly mentioned
+  - A reusable virtual card
+  - A single-use or disposable virtual card
+  - Apple Pay or Google Pay
+  - A card mentioned with its type unclear
+  - The message is about something other than a card
+- name: request_type
+  type: choice
+  instructions: What is the customer mainly doing in the message?
+  options:
+  - asking_information
+  - reporting_problem
+  - checking_status
+  - requesting_action
+  descriptions:
+  - Asking how something works, policies, costs or options
+  - Describing something that went wrong
+  - Asking where something is or why it is still in progress
+  - Asking the bank to do a specific thing like cancel, delete or unblock
+- name: fee_stance
+  type: choice
+  instructions: How does the message relate to fees or charges?
+  options:
+  - fee_unrelated
+  - asks_fee_policy
+  - complains_fee_charged
+  descriptions:
+  - Fees or charges are absent from the message
+  - Asks in advance whether or how much a fee applies
+  - Reports a fee that has already been applied
+- name: fee_context
+  type: choice
+  instructions: If a fee or charge is mentioned, what activity is it attached to?
+  options:
+  - card_payment
+  - cash_withdrawal
+  - sent_transfer
+  - top_up_by_card
+  - top_up_by_bank_transfer
+  - currency_exchange
+  - statement_generic
+  - fee_unmentioned
+  descriptions:
+  - Paying with a card
+  - Taking cash from an ATM
+  - Sending a transfer
+  - Adding funds using a card
+  - Adding funds via bank or SEPA transfer
+  - Exchanging currency
+  - A charge seen on a statement with unclear source
+  - Message has no fee
+- name: transaction_state
+  type: choice
+  instructions: What state does the customer describe a specific transaction as being
+    in?
+  options:
+  - pending
+  - declined
+  - failed
+  - reverted
+  - completed
+  - transaction_absent
+  descriptions:
+  - Still pending or processing
+  - Refused or declined
+  - Failed or errored
+  - Returned, reversed or reverted
+  - Already went through
+  - The message refers to a specific transaction in none of these states
+- name: disowned_transaction_type
+  type: choice
+  instructions: If the customer says a transaction on their account was made by someone
+    else or is unrecognised, what type is it?
+  options:
+  - card_payment
+  - cash_withdrawal
+  - direct_debit_or_statement_item
+  - all_transactions_recognised
+  descriptions:
+  - An unrecognised card purchase or card charge
+  - An unrecognised ATM cash withdrawal
+  - An unrecognised direct debit or older statement entry
+  - The customer disowns no transaction
+- name: charged_twice
+  type: noul
+  instructions: The customer says the same payment or transaction was charged or recorded
+    more than once.
+- name: exchange_topic
+  type: choice
+  instructions: Which currency exchange aspect does the message concern?
+  options:
+  - rate_policy
+  - wrong_rate_purchase
+  - wrong_rate_cash_withdrawal
+  - exchange_in_app
+  - exchange_fees
+  - held_currencies
+  - exchange_absent
+  descriptions:
+  - Which exchange rates the bank uses
+  - Incorrect rate on a card purchase
+  - Incorrect rate or home currency at an ATM abroad
+  - Wanting to convert money into another currency
+  - Costs or discounts for exchanging
+  - Which currencies can be held or exchanged
+  - Exchange is outside the message topic
+- name: card_lifecycle_stage
+  type: choice
+  instructions: Which stage of getting or maintaining a card does the message concern?
+  options:
+  - ordering_new
+  - delivery_timing
+  - awaiting_arrival
+  - activation
+  - expiry_replacement
+  - additional_card
+  - relinking_found_card
+  - stage_irrelevant
+  descriptions:
+  - Ordering or the price of a physical card
+  - Asking when or on what day a card can be delivered
+  - Card ordered but still has yet to arrive
+  - Activating a received card
+  - Card expiring or expired
+  - Getting extra or spare cards
+  - Re-adding or reactivating a card in the app
+  - Card lifecycle is outside the topic
+- name: pin_topic
+  type: choice
+  instructions: Which PIN matter does the message concern?
+  options:
+  - change_pin
+  - pin_blocked
+  - obtain_pin
+  - pin_irrelevant
+  descriptions:
+  - Changing or resetting the PIN
+  - PIN is blocked and needs unblocking
+  - Getting a PIN for a new card
+  - PIN is outside the topic
+- name: passcode_forgotten
+  type: noul
+  instructions: The customer has forgotten their app passcode or password.
+- name: card_lost_or_stolen
+  type: noul
+  instructions: The customer says their card is lost or stolen.
+- name: phone_lost_or_stolen
+  type: noul
+  instructions: The customer says their phone is lost or stolen.
+- name: card_compromise_suspected
+  type: noul
+  instructions: The customer suspects someone else has their card details or is using
+    their card, while still holding the card.
+- name: card_retained_by_atm
+  type: noul
+  instructions: An ATM kept, swallowed or is stuck holding the customer's card.
+- name: wrong_cash_amount
+  type: noul
+  instructions: The ATM dispensed a different amount of cash than requested or recorded.
+- name: contactless_issue
+  type: noul
+  instructions: The message is about contactless payments malfunctioning.
+- name: card_malfunction
+  type: noul
+  instructions: The customer says their card has stopped working or is broken in general.
+- name: merchant_acceptance
+  type: noul
+  instructions: The customer asks where or at which merchants the card is accepted.
+- name: country_eligibility
+  type: noul
+  instructions: The customer asks whether the service or card is available in their
+    country or region.
+- name: age_eligibility
+  type: noul
+  instructions: The customer asks about a minimum age for opening or using an account.
+- name: card_network_preference
+  type: noul
+  instructions: The message mentions Visa or Mastercard as the card network.
+- name: top_up_method
+  type: choice
+  instructions: If the message is about adding funds, which funding method is involved?
+  options:
+  - by_card
+  - by_bank_transfer
+  - by_cash_or_cheque
+  - automatic
+  - method_unspecified
+  - top_up_absent
+  descriptions:
+  - Using a debit or credit card
+  - Using a bank or SEPA transfer
+  - Depositing cash or a cheque
+  - Automatic recurring top-ups
+  - Top-up with unclear method
+  - Message is unrelated to adding funds
+- name: top_up_verification_code
+  type: noul
+  instructions: The customer asks about a verification code or verifying the card
+    used for a top-up.
+- name: top_up_missing
+  type: noul
+  instructions: The customer says a top-up they made is invisible in their account.
+- name: identity_topic
+  type: choice
+  instructions: Which identity or verification matter does the message concern?
+  options:
+  - why_required
+  - how_to_verify
+  - unable_to_verify
+  - source_of_funds
+  - verification_irrelevant
+  descriptions:
+  - Asks why or whether identity checks are needed
+  - Asks how to complete identity verification
+  - Reports trouble or failure proving identity
+  - Asks about proving where funds came from
+  - Verification is outside the topic
+- name: beneficiary_blocked
+  type: noul
+  instructions: The customer says the app refuses to let them send to a particular
+    recipient or account.
+- name: cancel_transfer_request
+  type: noul
+  instructions: The customer wants to cancel or stop a transfer they made.
+- name: transfer_direction
+  type: choice
+  instructions: Which direction of money movement is the message about?
+  options:
+  - sent_to_someone
+  - from_own_external_account
+  - received_from_others
+  - movement_irrelevant
+  descriptions:
+  - Customer sending money to another person or account
+  - Customer moving their own money in from another bank
+  - Customer getting paid by others or in other currencies
+  - Money movement is outside the topic
+- name: transfer_arrival_concern
+  type: choice
+  instructions: What concern about a transfer arriving does the customer express?
+  options:
+  - general_duration
+  - recipient_missing_funds
+  - own_balance_missing_funds
+  - arrival_irrelevant
+  descriptions:
+  - Asks how long transfers take in general
+  - A sent transfer has yet to reach the recipient
+  - An incoming transfer has yet to show in own balance
+  - Arrival timing is outside the topic
+- name: deposit_not_reflected
+  type: noul
+  instructions: The customer asks when a cheque or cash deposit will show in their
+    balance.
+- name: refund_topic
+  type: choice
+  instructions: Which refund matter does the message concern?
+  options:
+  - requesting_refund
+  - refund_missing
+  - refund_irrelevant
+  descriptions:
+  - Wants a refund or asks if purchases are refundable
+  - A refund is expected but absent from the statement
+  - Refunds are outside the topic
+- name: account_closure
+  type: noul
+  instructions: The customer wants to close or delete their account.
+- name: edit_personal_details
+  type: noul
+  instructions: The customer wants to change personal details such as name, address
+    or contact info.
+- name: receiving_payments
+  type: noul
+  instructions: The customer asks about being paid or receiving money from other people
+    or employers.
+- name: atm_withdrawal_howto
+  type: noul
+  instructions: The customer asks how or where to withdraw cash with their card.
+- name: small_extra_charge_on_statement
+  type: noul
+  instructions: The customer reports an unexplained extra amount charged on their
+    statement, such as an extra pound.
+- name: accepted_funding_methods
+  type: noul
+  instructions: The customer asks which cards, currencies or payment forms the bank
+    supports.

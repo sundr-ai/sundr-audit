@@ -1,0 +1,58 @@
+questions:
+- name: topic
+  type: choice
+  instructions: Which area of the customer's banking does this message concern?
+  options: [card_delivery_and_ordering, card_problems, card_payments, cash_and_atm, transfers, top_ups, exchange_and_currencies, virtual_and_disposable_cards, identity_and_verification, account_and_security, refunds_and_disputes]
+  descriptions:
+  - getting, ordering, activating or receiving a physical card
+  - a card that fails, expires, is swallowed or is refused by merchants
+  - purchases made with the card, their fees, status or exchange rate
+  - cash withdrawals and ATMs
+  - bank transfers in or out, their status, fees or recipients
+  - adding money to the account by card, transfer, cash or cheque
+  - currencies, exchange rates and supported countries
+  - virtual and disposable cards
+  - verifying identity or source of funds
+  - PINs, passcodes, personal details, closing the account, lost or stolen items
+  - refunds, double charges and unrecognised payments or direct debits
+- name: status
+  type: choice
+  instructions: What best describes the situation the customer is asking about?
+  options: [pending_or_waiting, failed_declined_or_reverted, wrong_amount_or_rate, fee_or_charge, how_to_or_eligibility, security_or_loss]
+  descriptions:
+  - something is still pending or has yet to arrive
+  - something failed, was declined or was reversed
+  - an amount or exchange rate looks wrong
+  - the customer asks about or disputes a fee or charge
+  - the customer asks how to do something or whether it is possible
+  - something is lost, stolen, compromised or blocked
+- name: sig_unrecognised
+  type: noul
+  instructions: The customer reports an unrecognised or unauthorised payment, withdrawal or debit.
+- name: sig_fee
+  type: noul
+  instructions: The customer asks about a fee or an extra charge.
+- name: sig_physical_card
+  type: noul
+  instructions: The message is about a physical card.
+- name: sig_virtual_card
+  type: noul
+  instructions: The message is about a virtual or disposable card.
+- name: sig_cash
+  type: noul
+  instructions: The message mentions an ATM or cash.
+- name: sig_top_up
+  type: noul
+  instructions: The message is about topping up the account.
+- name: sig_transfer
+  type: noul
+  instructions: The message is about a bank transfer.
+- name: sig_currency
+  type: noul
+  instructions: The message mentions exchange rates or foreign currencies.
+- name: sig_identity
+  type: noul
+  instructions: The message is about verifying the customer's identity.
+- name: sig_lost_stolen
+  type: noul
+  instructions: The customer reports a lost, stolen or compromised card or phone.

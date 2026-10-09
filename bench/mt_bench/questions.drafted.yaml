@@ -1,0 +1,372 @@
+questions:
+- name: verdict
+  type: choice
+  instructions: You judge two AI assistants' answers to the same user question. Decide
+    which assistant answered the user's final question better, considering helpfulness,
+    accuracy, relevance, depth and instruction-following, or whether they are about
+    equally good.
+  options:
+  - model_a
+  - model_b
+  - tie
+  descriptions:
+  - Assistant A's answer is better
+  - Assistant B's answer is better
+  - both answers are about equally good
+- name: verdict_alt
+  type: choice
+  instructions: 'Which label best describes this text? Task: You judge two AI assistants''
+    answers to the same user question. Decide which assistant answered the user''s
+    final question better, considering helpfulness, accuracy, relevance, depth and
+    instruction-following, or whether they are about equally good.'
+  options:
+  - model_a
+  - model_b
+  - tie
+  descriptions:
+  - Assistant A's answer is better
+  - Assistant B's answer is better
+  - both answers are about equally good
+- name: judged_turn
+  type: choice
+  instructions: Which user turn is the judgment about, as stated in the header of
+    the text?
+  options:
+  - first_turn
+  - second_turn
+  descriptions:
+  - The header asks which assistant answered the single or first user question better.
+  - The header asks which assistant answered the user's SECOND question better.
+- name: task_category
+  type: choice
+  instructions: Classify the user's final question by its main task type.
+  options:
+  - math
+  - coding
+  - logic_reasoning
+  - writing_creative
+  - roleplay
+  - extraction_formatting
+  - stem_knowledge
+  - humanities_advice
+  descriptions:
+  - Arithmetic, algebra, geometry or numeric problem solving.
+  - Writing or modifying a program or algorithm.
+  - Puzzles, relationships or statement-truth reasoning.
+  - Stories, emails, poems or rewrites.
+  - Speaking as a persona or character.
+  - Extracting data, categorizing, or returning a strict format such as JSON.
+  - Science, physics or engineering explanations.
+  - History, philosophy, social advice or recommendations.
+- name: correctness_comparison
+  type: choice
+  instructions: Compare the factual or mathematical correctness of the two assistants'
+    answers to the judged question.
+  options:
+  - a_more_correct
+  - b_more_correct
+  - equally_correct
+  descriptions:
+  - Assistant A's answer has fewer or less serious errors.
+  - Assistant B's answer has fewer or less serious errors.
+  - Both answers are about equally correct or equally wrong.
+- name: a_final_answer_correct
+  type: noul
+  instructions: Assistant A's answer to the judged question reaches a correct final
+    result or conclusion.
+- name: b_final_answer_correct
+  type: noul
+  instructions: Assistant B's answer to the judged question reaches a correct final
+    result or conclusion.
+- name: both_answers_wrong
+  type: noul
+  instructions: Both assistants give an incorrect final result or conclusion to the
+    judged question.
+- name: answers_nearly_identical
+  type: noul
+  instructions: The two assistants' answers to the judged question are word-for-word
+    or nearly identical in content.
+- name: instruction_following_comparison
+  type: choice
+  instructions: Which assistant better follows the explicit instructions and constraints
+    in the judged question (format, length, style, role, requested items)?
+  options:
+  - a_follows_better
+  - b_follows_better
+  - equal_adherence
+  descriptions:
+  - Assistant A adheres more closely to the stated instructions.
+  - Assistant B adheres more closely to the stated instructions.
+  - Both adhere to the instructions to a similar degree.
+- name: depth_comparison
+  type: choice
+  instructions: Which assistant's answer to the judged question offers more substantive
+    depth and detail relevant to the request?
+  options:
+  - a_deeper
+  - b_deeper
+  - similar_depth
+  descriptions:
+  - Assistant A gives more relevant substance and detail.
+  - Assistant B gives more relevant substance and detail.
+  - Both give a similar amount of relevant substance.
+- name: helpfulness_comparison
+  type: choice
+  instructions: Which assistant's answer would be more useful to the user for the
+    judged question?
+  options:
+  - a_more_helpful
+  - b_more_helpful
+  - equally_helpful
+  descriptions:
+  - Assistant A's answer would help the user more.
+  - Assistant B's answer would help the user more.
+  - Both answers would help the user about equally.
+- name: a_placeholder_answer
+  type: noul
+  instructions: Assistant A's answer to the judged question merely claims to provide
+    something (code, a program, a solution) while the actual content is absent.
+- name: b_placeholder_answer
+  type: noul
+  instructions: Assistant B's answer to the judged question merely claims to provide
+    something (code, a program, a solution) while the actual content is absent.
+- name: a_shows_reasoning
+  type: noul
+  instructions: Assistant A's answer to the judged question shows step-by-step reasoning
+    or justification for its result.
+- name: b_shows_reasoning
+  type: noul
+  instructions: Assistant B's answer to the judged question shows step-by-step reasoning
+    or justification for its result.
+- name: a_bare_one_liner
+  type: noul
+  instructions: Assistant A's answer to the judged question is a single terse sentence
+    or bare result.
+- name: b_bare_one_liner
+  type: noul
+  instructions: Assistant B's answer to the judged question is a single terse sentence
+    or bare result.
+- name: a_repetitive_text
+  type: noul
+  instructions: Assistant A's answer repeats the same sentences or paragraphs in a
+    looping, redundant way.
+- name: b_repetitive_text
+  type: noul
+  instructions: Assistant B's answer repeats the same sentences or paragraphs in a
+    looping, redundant way.
+- name: a_self_contradiction
+  type: noul
+  instructions: Assistant A's answer to the judged question contains internal contradictions,
+    such as reasoning that conflicts with its stated conclusion.
+- name: b_self_contradiction
+  type: noul
+  instructions: Assistant B's answer to the judged question contains internal contradictions,
+    such as reasoning that conflicts with its stated conclusion.
+- name: a_error_severity
+  type: score
+  instructions: Rate how severe the errors are in Assistant A's answer to the judged
+    question.
+  options:
+  - error_free
+  - minor_errors
+  - significant_errors
+  - fundamentally_wrong
+  descriptions:
+  - Accurate throughout.
+  - Small slips that leave the main answer intact.
+  - Errors that undermine part of the answer.
+  - The core answer or approach is wrong.
+- name: b_error_severity
+  type: score
+  instructions: Rate how severe the errors are in Assistant B's answer to the judged
+    question.
+  options:
+  - error_free
+  - minor_errors
+  - significant_errors
+  - fundamentally_wrong
+  descriptions:
+  - Accurate throughout.
+  - Small slips that leave the main answer intact.
+  - Errors that undermine part of the answer.
+  - The core answer or approach is wrong.
+- name: a_overall_quality
+  type: score
+  instructions: Rate the overall quality of Assistant A's answer to the judged question.
+  options:
+  - very_poor
+  - poor
+  - adequate
+  - good
+  - excellent
+  descriptions:
+  - Useless, empty or badly wrong.
+  - Mostly unhelpful or flawed.
+  - Acceptable with clear gaps.
+  - Solid and correct with minor gaps.
+  - Complete, correct and well presented.
+- name: b_overall_quality
+  type: score
+  instructions: Rate the overall quality of Assistant B's answer to the judged question.
+  options:
+  - very_poor
+  - poor
+  - adequate
+  - good
+  - excellent
+  descriptions:
+  - Useless, empty or badly wrong.
+  - Mostly unhelpful or flawed.
+  - Acceptable with clear gaps.
+  - Solid and correct with minor gaps.
+  - Complete, correct and well presented.
+- name: quality_gap
+  type: score
+  instructions: How large is the overall quality difference between the two answers
+    to the judged question?
+  options:
+  - negligible
+  - slight
+  - moderate
+  - large
+  descriptions:
+  - Answers are essentially equal in quality.
+  - One is marginally better.
+  - One is clearly better.
+  - One is far better than the other.
+- name: code_correctness_comparison
+  type: choice
+  instructions: If the judged question asks for code, which assistant's code is more
+    likely to run and solve the task correctly? If code is irrelevant, choose code_irrelevant.
+  options:
+  - a_code_better
+  - b_code_better
+  - code_equal
+  - code_irrelevant
+  descriptions:
+  - Assistant A's code is more correct or functional.
+  - Assistant B's code is more correct or functional.
+  - Both codes are about equally correct.
+  - The task asks for no code.
+- name: format_compliance_comparison
+  type: choice
+  instructions: Which assistant better matches the output format requested (JSON,
+    list, line-by-line, poem, email)? Choose format_unspecified if the user requested
+    a particular format nowhere.
+  options:
+  - a_format_better
+  - b_format_better
+  - format_equal
+  - format_unspecified
+  descriptions:
+  - Assistant A matches the requested format more closely.
+  - Assistant B matches the requested format more closely.
+  - Both match the format similarly.
+  - The user gave no format request.
+- name: context_continuity_comparison
+  type: choice
+  instructions: For second-turn judgments, which assistant better builds on the earlier
+    turn's content (modifying its prior answer, reusing data)? Choose first_turn_only
+    for first-turn judgments.
+  options:
+  - a_better_continuity
+  - b_better_continuity
+  - equal_continuity
+  - first_turn_only
+  descriptions:
+  - Assistant A uses prior context more appropriately.
+  - Assistant B uses prior context more appropriately.
+  - Both use prior context similarly.
+  - The judgment concerns the first turn.
+- name: completeness_comparison
+  type: choice
+  instructions: Which assistant addresses more of the parts or sub-questions of the
+    judged question?
+  options:
+  - a_more_complete
+  - b_more_complete
+  - equally_complete
+  descriptions:
+  - Assistant A covers more of the requested parts.
+  - Assistant B covers more of the requested parts.
+  - Both cover the requested parts to a similar extent.
+- name: specificity_comparison
+  type: choice
+  instructions: Which assistant gives more concrete, specific content (named examples,
+    specific steps, numbers) instead of generic statements?
+  options:
+  - a_more_specific
+  - b_more_specific
+  - equally_specific
+  descriptions:
+  - Assistant A is more concrete and specific.
+  - Assistant B is more concrete and specific.
+  - Both are similarly specific or generic.
+- name: hallucination_comparison
+  type: choice
+  instructions: Which assistant includes more fabricated or false claims (wrong facts,
+    invented corrections, wrong awards)?
+  options:
+  - a_more_fabrication
+  - b_more_fabrication
+  - similar_fabrication
+  descriptions:
+  - Assistant A contains more false or invented claims.
+  - Assistant B contains more false or invented claims.
+  - Both contain a similar amount, including none.
+- name: clarity_comparison
+  type: choice
+  instructions: Which assistant's answer is clearer and easier to follow for the user?
+  options:
+  - a_clearer
+  - b_clearer
+  - equally_clear
+  descriptions:
+  - Assistant A's answer is clearer.
+  - Assistant B's answer is clearer.
+  - Both are about equally clear.
+- name: creativity_comparison
+  type: choice
+  instructions: For creative or open-ended requests, which assistant shows more originality
+    and engagement? Choose creativity_irrelevant for tasks with a single correct answer.
+  options:
+  - a_more_creative
+  - b_more_creative
+  - equally_creative
+  - creativity_irrelevant
+  descriptions:
+  - Assistant A is more original and engaging.
+  - Assistant B is more original and engaging.
+  - Both are similarly creative.
+  - The task is factual or has one correct answer.
+- name: safety_handling_comparison
+  type: choice
+  instructions: If the question involves safety or sensitive matters (abuse, health,
+    danger), which assistant handles it more responsibly and supportively? Choose
+    safety_irrelevant otherwise.
+  options:
+  - a_handles_better
+  - b_handles_better
+  - equal_handling
+  - safety_irrelevant
+  descriptions:
+  - Assistant A handles the sensitive issue better.
+  - Assistant B handles the sensitive issue better.
+  - Both handle it similarly.
+  - The question involves nothing sensitive.
+- name: same_final_answer
+  type: noul
+  instructions: Both assistants arrive at the same final answer or conclusion for
+    the judged question.
+- name: verbosity_fit_comparison
+  type: choice
+  instructions: Which assistant's length better fits what the question needs, avoiding
+    both excessive padding and excessive terseness?
+  options:
+  - a_better_length
+  - b_better_length
+  - equally_fitting
+  descriptions:
+  - Assistant A's length suits the request better.
+  - Assistant B's length suits the request better.
+  - Both lengths suit the request similarly.

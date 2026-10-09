@@ -1,0 +1,6 @@
+name: legal_definition_classification
+description: Does the sentence from a court opinion define a term?
+labels: ["Yes", "No"]
+label_descriptions:
+  "Yes": the sentence states what a word or phrase means
+  "No": the sentence uses terms without defining them

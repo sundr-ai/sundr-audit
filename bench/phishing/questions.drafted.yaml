@@ -1,0 +1,232 @@
+questions:
+- name: verdict
+  type: choice
+  instructions: You are an email security assistant. Read the email (sender, from
+    address, subject, body, link text and link URL) and decide whether it is a phishing
+    attempt whose link the user should not click, or a legitimate email.
+  options:
+  - phishing
+  - legitimate
+  descriptions:
+  - a phishing or malicious email; the user should not click its link
+  - a genuine email whose link is safe to click
+- name: verdict_alt
+  type: choice
+  instructions: 'Which label best describes this text? Task: You are an email security
+    assistant. Read the email (sender, from address, subject, body, link text and
+    link URL) and decide whether it is a phishing attempt whose link the user should
+    not click, or a legitimate email.'
+  options:
+  - phishing
+  - legitimate
+  descriptions:
+  - a phishing or malicious email; the user should not click its link
+  - a genuine email whose link is safe to click
+- name: verdict_mirror
+  type: noul
+  instructions: 'The correct label for this text is ''phishing''. Task: You are an
+    email security assistant. Read the email (sender, from address, subject, body,
+    link text and link URL) and decide whether it is a phishing attempt whose link
+    the user should not click, or a legitimate email.'
+- name: sender_free_webmail
+  type: noul
+  instructions: The from address uses a free consumer email provider such as gmail.com,
+    yahoo.com, hotmail.com or outlook.com.
+- name: sender_domain_category
+  type: choice
+  instructions: Classify the domain of the from address.
+  options:
+  - organization_domain
+  - free_consumer_webmail
+  descriptions:
+  - A company, nonprofit, government or other organization's own domain
+  - A free consumer mailbox provider such as gmail.com or yahoo.com
+- name: link_domain_matches_sender
+  type: noul
+  instructions: The registered domain of the link URL is the same as the domain of
+    the sender's from address.
+- name: link_host_category
+  type: choice
+  instructions: Classify the host of the link URL.
+  options:
+  - sender_own_domain
+  - known_saas_homepage
+  - free_hosting_platform
+  - url_shortener
+  - online_document_service
+  - decentralized_storage
+  - unrelated_third_party_site
+  descriptions:
+  - Same domain as the sender's email address
+  - Official homepage of a widely known business service such as Zoom, Asana or PandaDoc
+  - Free user site hosting such as github.io, firebaseapp.com, web.app, vercel.app,
+    netlify.app
+  - Link shortener such as bit.ly or tinyurl
+  - Online document or form service such as docs.google.com
+  - IPFS gateway or similar decentralized storage link
+  - Some other domain unrelated to the sender
+- name: link_url_shortener
+  type: noul
+  instructions: The link URL uses a URL shortening service (e.g. bit.ly, tinyurl,
+    t.co) that hides the final destination.
+- name: link_free_hosting
+  type: noul
+  instructions: The link URL is hosted on a free user-publishable platform such as
+    github.io, firebaseapp.com, web.app, vercel.app or netlify.app.
+- name: link_ipfs
+  type: noul
+  instructions: The link URL points to an IPFS gateway or decentralized storage host
+    (e.g. ipfs.dweb.link, ipfs.io).
+- name: link_google_docs
+  type: noul
+  instructions: The link URL points to a Google Docs, Slides, Drawings, Sheets or
+    Forms address on docs.google.com.
+- name: link_input_form
+  type: noul
+  instructions: The link URL points to a form-style page that collects user input,
+    such as a Google Form viewform URL.
+- name: link_root_homepage
+  type: noul
+  instructions: The link URL points only to the bare homepage of a domain, with at
+    most a trailing slash and nothing further in the path.
+- name: link_deep_path
+  type: noul
+  instructions: The link URL includes a path with multiple segments, long identifiers
+    or query parameters beyond the domain.
+- name: link_random_hostname
+  type: noul
+  instructions: The link hostname or subdomain contains a random-looking string of
+    letters and digits rather than a readable brand or word.
+- name: link_unrelated_brand_terms
+  type: noul
+  instructions: The link URL contains a brand or country name (e.g. netflix, swiss)
+    unrelated to the sender's organization.
+- name: link_suspicious_keywords
+  type: noul
+  instructions: The link URL contains words often used in credential lures, such as
+    manage, authorized, login, verify, secure, account or doc.
+- name: link_plain_http
+  type: noul
+  instructions: The link URL begins with http:// rather than https://.
+- name: link_known_saas_homepage
+  type: noul
+  instructions: The link URL is the official homepage of a widely known business service
+    such as Zoom, Asana, PandaDoc, Slack or DocuSign.
+- name: link_user_generated_space
+  type: noul
+  instructions: The link points to a space where any individual can publish content
+    under a shared platform domain (personal sites, shared docs, shortened links).
+- name: link_domain_topic_fit
+  type: score
+  instructions: How well does the link's domain name fit the organization, product
+    or topic the email describes?
+  options:
+  - unrelated
+  - weak_fit
+  - clear_fit
+  descriptions:
+  - Domain has nothing to do with the described topic or sender
+  - Domain loosely relates to the topic
+  - Domain clearly names the organization or site the email talks about
+- name: link_matches_named_brand
+  type: noul
+  instructions: The link domain matches an organization, site or service that the
+    email body names explicitly.
+- name: service_host_mismatch
+  type: noul
+  instructions: The body or display text says the link opens a particular service
+    or workspace, yet the URL host belongs to a different, unrelated host.
+- name: greeting_style
+  type: choice
+  instructions: How does the email greet the recipient?
+  options:
+  - personal_name
+  - group_address
+  - anonymous_greeting
+  - absent_greeting
+  descriptions:
+  - Greets the recipient by first name
+  - Addresses a group such as 'team' or 'everyone'
+  - Generic greeting like 'Hey', 'Hi' or 'Hello' with nobody named
+  - The email starts directly with content
+- name: recipient_named
+  type: noul
+  instructions: The email addresses the recipient by a specific personal name.
+- name: signature_title_company
+  type: noul
+  instructions: The email ends with a signature that includes a job title and a company
+    name.
+- name: sender_org_identified
+  type: noul
+  instructions: The body or signature identifies the sender's employer or organization.
+- name: sender_name_matches_address
+  type: noul
+  instructions: The sender display name clearly corresponds to the name in the from
+    address local part.
+- name: specific_shared_context
+  type: score
+  instructions: How specific is the shared context the email references (named meetings,
+    projects, clients, decisions)?
+  options:
+  - generic
+  - somewhat_specific
+  - highly_specific
+  descriptions:
+  - Vague references anyone could send, like 'our meeting' or 'the project'
+  - Some details such as a timeframe or topic
+  - Concrete named projects, workstreams, clients or decisions
+- name: named_project_reference
+  type: noul
+  instructions: The body names a specific project, workstream, client, deliverable
+    or quarter plan (e.g. 'Harbor workstream', 'Q3 update').
+- name: explains_link_relevance
+  type: noul
+  instructions: The body explains concretely why the linked site is relevant, describing
+    specific features or content found there.
+- name: link_framed_as_files
+  type: noul
+  instructions: The link is presented as shared documents, files, a folder, notes,
+    an archive or worksheets to open.
+- name: link_framed_as_personal_project
+  type: noul
+  instructions: The link is presented as the sender's own personal project, portfolio,
+    demo, clone or code deployment.
+- name: link_framed_as_reference_site
+  type: noul
+  instructions: The link is presented as a public website to use as a reference or
+    research resource.
+- name: clone_of_known_brand
+  type: noul
+  instructions: The email describes the linked site as a clone or copy of a well-known
+    brand's site or app.
+- name: display_text_generic
+  type: noul
+  instructions: The link display text is a generic word such as 'View', 'Open' or
+    'Click here' that gives the destination's identity.
+- name: display_text_names_service
+  type: noul
+  instructions: The link display text names the specific service it opens, such as
+    'Zoom link' or 'Open in PandaDoc'.
+- name: internal_admin_topic
+  type: noul
+  instructions: The email concerns internal company administration such as PTO calendars,
+    badge access, parking, budgets or internal tools.
+- name: edit_or_review_request
+  type: noul
+  instructions: The email asks the recipient to open the link to review, edit, comment
+    on or add to content.
+- name: deadline_pressure
+  type: noul
+  instructions: The email sets a deadline or time pressure for the recipient to act
+    on the link.
+- name: link_risk_level
+  type: score
+  instructions: Rate how risky the link destination looks based only on the URL itself.
+  options:
+  - low_risk
+  - moderate_risk
+  - high_risk
+  descriptions:
+  - Readable, established domain homepage or known service
+  - Unfamiliar domain or document link with some uncertainty
+  - Shortened, randomized, free-hosted, decentralized or lure-style URL

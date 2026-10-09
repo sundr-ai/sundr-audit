@@ -1,0 +1,8 @@
+name: legal_cuad_audit_rights
+description: >-
+  Does the contract clause give a party the right to audit the books, records or physical locations of the
+  counterparty to ensure compliance with the contract?
+labels: ["Yes", "No"]
+label_descriptions:
+  "Yes": the clause grants an audit or inspection right over the counterparty
+  "No": the clause is about something else

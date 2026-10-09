@@ -1,0 +1,8 @@
+name: civil_comments
+description: >-
+  You moderate comments on a news website. Decide whether the comment is toxic: rude, disrespectful or
+  unreasonable language likely to make someone leave the discussion.
+labels: [toxic, non_toxic]
+label_descriptions:
+  toxic: rude, disrespectful or unreasonable; likely to drive people away
+  non_toxic: acceptable for the discussion, even if critical or strongly worded

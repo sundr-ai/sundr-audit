@@ -1,0 +1,19 @@
+questions:
+- name: sig_overrules
+  type: noul
+  instructions: The sentence states that the court overrules, disapproves, abrogates or recedes from an earlier decision.
+- name: sig_overrule_words
+  type: noul
+  instructions: The sentence uses a word such as overrule, overruled, disapprove, abrogate or recede.
+- name: sig_partial_overruling
+  type: noul
+  instructions: The sentence limits an earlier case to the extent it conflicts with the current holding.
+- name: sig_cites_support
+  type: noul
+  instructions: The sentence cites an earlier case as supporting authority for a point.
+- name: sig_distinguishes
+  type: noul
+  instructions: The sentence distinguishes an earlier case on its facts.
+- name: sig_lower_court
+  type: noul
+  instructions: The sentence describes reversing or affirming the judgment of a lower court in the present case.

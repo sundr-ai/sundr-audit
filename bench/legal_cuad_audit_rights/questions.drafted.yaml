@@ -1,0 +1,192 @@
+questions:
+- name: verdict_mirror
+  type: noul
+  instructions: 'The correct label for this text is ''Yes''. Task: Does the contract
+    clause give a party the right to audit the books, records or physical locations
+    of the counterparty to ensure compliance with the contract?'
+- name: mentions_audit_term
+  type: noul
+  instructions: The clause uses a form of the word audit (audit, audits, audited,
+    auditor, auditing).
+- name: mentions_inspection_term
+  type: noul
+  instructions: The clause uses a form of the word inspect or examine (inspect, inspection,
+    examination) in reference to one party looking into another party's affairs.
+- name: mentions_review_of_records
+  type: noul
+  instructions: The clause describes a party reviewing, checking or verifying documents,
+    records, reports or data held by another party.
+- name: refers_books_records
+  type: noul
+  instructions: The clause refers to books, records, accounts, vouchers or similar
+    business documentation.
+- name: refers_facilities_premises
+  type: noul
+  instructions: The clause refers to physical sites such as facilities, premises,
+    operations or locations of a party.
+- name: grants_access_obligation
+  type: noul
+  instructions: The clause obliges one party to give another party (or its representatives)
+    access to its records, premises, systems or personnel.
+- name: permits_counterparty_examination
+  type: noul
+  instructions: The clause states that one party shall permit, allow or submit to
+    examination of its own affairs by the other party.
+- name: holder_has_right_to_examine
+  type: noul
+  instructions: The clause states that a named party has the right, or is entitled,
+    or may audit, inspect or review something belonging to another party.
+- name: purpose_verify_payments
+  type: noul
+  instructions: The clause states that the purpose of an examination is verifying
+    payments, royalties, invoices, charges, costs or financial reports.
+- name: purpose_verify_compliance
+  type: noul
+  instructions: The clause states that the purpose of an examination is confirming
+    compliance with the agreement, protocols, quality standards or security criteria.
+- name: purpose_brand_quality_control
+  type: noul
+  instructions: The clause gives a party the right to inspect operations to ensure
+    proper use of trademarks or the quality of goods or services.
+- name: audit_procedure_terms
+  type: noul
+  instructions: The clause sets procedural conditions for an audit or inspection,
+    such as timing, notice, frequency, location or manner of conduct.
+- name: audit_frequency_limit
+  type: noul
+  instructions: The clause limits how often an audit or inspection may be conducted
+    (for example once per year).
+- name: business_hours_condition
+  type: noul
+  instructions: The clause requires an audit or inspection to occur at reasonable
+    times or during regular business hours.
+- name: audit_cost_allocation
+  type: noul
+  instructions: The clause specifies which party bears or reimburses the costs of
+    an audit, review or inspection.
+- name: independent_auditor
+  type: noul
+  instructions: The clause involves an independent, third-party or certified accountant
+    or auditor performing an examination.
+- name: auditor_confidentiality
+  type: noul
+  instructions: The clause imposes confidentiality obligations on auditors or inspectors.
+- name: audit_results_adjustment
+  type: noul
+  instructions: The clause provides for adjustments, payments or corrections based
+    on the results or findings of an audit.
+- name: audit_discrepancy_consequence
+  type: noul
+  instructions: The clause attaches a consequence to a discrepancy or error revealed
+    by an audit (for example extra audits or cost shifting).
+- name: audit_report_sharing
+  type: noul
+  instructions: The clause requires delivery, sharing or review of audit reports,
+    audit results or the scope of an audit.
+- name: record_keeping_obligation
+  type: noul
+  instructions: The clause obliges a party to keep, maintain or retain records or
+    books of account.
+- name: record_retention_period
+  type: noul
+  instructions: The clause sets a period, possibly extending past termination, during
+    which records must be kept or remain open to examination.
+- name: submit_records_on_request
+  type: noul
+  instructions: The clause requires a party to submit reports, records or data to
+    the other party upon request for review or auditing.
+- name: information_request_right
+  type: noul
+  instructions: The clause lets one party request information or documentation from
+    the other party in order to confirm the other party's performance or charges.
+- name: right_to_copy_records
+  type: noul
+  instructions: The clause grants a right to make copies of the other party's books
+    or records.
+- name: on_site_visit
+  type: noul
+  instructions: The clause provides for on-site visits or inspections at a party's
+    or its supplier's facilities.
+- name: product_sample_testing
+  type: noul
+  instructions: The clause gives a party the right to obtain product samples for testing
+    as a means of checking a supplier or counterparty.
+- name: access_to_personnel
+  type: noul
+  instructions: The clause grants access to the other party's personnel or employees
+    for verification purposes.
+- name: regulator_or_auditor_access
+  type: noul
+  instructions: The clause extends examination rights to governmental authorities,
+    internal audit staff or external auditors of a party.
+- name: shared_venture_books_open
+  type: noul
+  instructions: The clause makes the books of a joint venture or shared entity open
+    to inspection or audit by its members or venturers.
+- name: references_prior_audit
+  type: noul
+  instructions: The clause refers back to an audit, inspection or review established
+    elsewhere in the agreement (for example 'such audit').
+- name: payment_calculation_content
+  type: noul
+  instructions: The clause mainly describes how fees, royalties or payments are calculated
+    or remitted.
+- name: assignment_restriction
+  type: noul
+  instructions: The clause restricts assignment or transfer of the agreement or rights
+    under it.
+- name: restrictive_covenant
+  type: noul
+  instructions: The clause imposes a non-compete, non-solicitation or exclusivity
+    restriction on a party.
+- name: governing_law_content
+  type: noul
+  instructions: The clause specifies the governing law or jurisdiction for the agreement.
+- name: liability_or_claims_limit
+  type: noul
+  instructions: The clause limits liability, damages, or the time period for bringing
+    claims.
+- name: ip_ownership_content
+  type: noul
+  instructions: The clause addresses ownership, assignment or protection of intellectual
+    property.
+- name: clause_main_topic
+  type: choice
+  instructions: Pick the single topic that best describes what the clause is mainly
+    about.
+  options:
+  - audit_inspection
+  - payment_financial
+  - assignment_transfer
+  - restrictive_covenant
+  - governing_law_dispute
+  - liability_warranty
+  - term_termination
+  - intellectual_property
+  - operational_obligations
+  descriptions:
+  - Examining, auditing or inspecting a party's records, facilities or operations,
+    or the mechanics of such examination
+  - Fees, royalties, pricing or payment calculation and remittance
+  - Assignment, transfer or subcontracting of rights or obligations
+  - Non-compete, non-solicit, exclusivity or similar restrictions
+  - Governing law, jurisdiction, claim procedures or dispute resolution
+  - Liability caps, indemnities, warranties or representations
+  - Effective date, duration, renewal or termination
+  - Ownership, licensing or protection of intellectual property
+  - Other performance duties such as supply, development, cooperation or reporting
+- name: audit_right_strength
+  type: score
+  instructions: Rate how directly the clause concerns a right to audit or inspect
+    a counterparty's books, records or premises.
+  options:
+  - unrelated_to_audit
+  - records_mentioned_only
+  - audit_mechanics_described
+  - audit_right_granted
+  descriptions:
+  - The clause concerns a different subject entirely
+  - Records or reports appear, yet examination by another party is absent
+  - The clause describes conditions, costs, results or reports of an audit or inspection
+  - The clause expressly grants a party the right to audit, inspect or review the
+    counterparty

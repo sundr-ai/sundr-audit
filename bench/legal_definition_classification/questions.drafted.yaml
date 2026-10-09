@@ -1,0 +1,211 @@
+questions:
+- name: verdict_mirror
+  type: noul
+  instructions: 'The correct label for this text is ''Yes''. Task: Does the sentence
+    from a court opinion define a term?'
+- name: cites_legal_dictionary
+  type: noul
+  instructions: The sentence cites or names a legal dictionary such as Black's Law
+    Dictionary, Bouvier, Burrill, Wharton, or Merriam-Webster's Dictionary of Law.
+- name: cites_general_dictionary
+  type: noul
+  instructions: The sentence cites or names a general-language dictionary such as
+    Webster's, American Heritage, Funk & Wagnalls, or the American College Dictionary.
+- name: uses_definition_vocabulary
+  type: noul
+  instructions: The sentence contains a word like 'define', 'defined', 'defining',
+    or 'definition'.
+- name: uses_meaning_verb
+  type: noul
+  instructions: The sentence uses 'means', 'mean', 'meaning', or 'refers to' to link
+    a word or phrase to its sense.
+- name: quoted_term_as_word
+  type: noul
+  instructions: A word or phrase appears in quotation marks and is treated as a word
+    under discussion, rather than as part of a quoted passage from another source.
+- name: term_is_description_structure
+  type: noul
+  instructions: The sentence follows the pattern 'An X is a Y' or 'X are Y', where
+    Y describes the general nature of the concept X.
+- name: appositive_gloss
+  type: noul
+  instructions: The sentence glosses a term inline with 'i.e.', a dash, a parenthetical,
+    or an appositive phrase explaining what the term is, such as 'debentures, a form
+    of debt secured only by...'.
+- name: discusses_word_senses
+  type: noul
+  instructions: The sentence discusses senses of a word, such as broad versus narrow,
+    primary versus secondary, or the sense in which a word is used.
+- name: metalinguistic_reference
+  type: noul
+  instructions: The sentence explicitly refers to language itself using phrases like
+    'the word', 'the term', 'the phrase', or 'the verb'.
+- name: lists_synonyms
+  type: noul
+  instructions: The sentence lists synonyms or near-equivalent words for a term, such
+    as 'to correct; to make anew; to rectify'.
+- name: competing_definitions
+  type: noul
+  instructions: The sentence presents two or more alternative meanings for the same
+    word or phrase.
+- name: definitional_explicitness
+  type: score
+  instructions: How explicitly does the sentence state the meaning of a word or phrase?
+  options:
+  - absent
+  - implicit
+  - partial
+  - explicit
+  descriptions:
+  - the sentence states the meaning of a word or phrase nowhere
+  - a meaning is implied through usage, classification, or context
+  - the sentence references a definition or dictionary treatment of a term while giving
+    only part of its content
+  - a clear statement of what a term means is given
+- name: primary_function
+  type: choice
+  instructions: Pick the main function the sentence serves within the opinion.
+  options:
+  - defining_term
+  - stating_holding
+  - narrating_facts_or_procedure
+  - critiquing_argument
+  - stating_legal_standard
+  - describing_law_or_history
+  descriptions:
+  - explains what a word, phrase, or concept means
+  - reports what a court decided or held
+  - recounts case events, filings, or procedural steps
+  - attacks or rebuts another opinion or party's reasoning
+  - sets out a test, burden, or rule a party must meet
+  - describes how a law, institution, or doctrine operates or developed
+- name: narrates_procedure
+  type: noul
+  instructions: The sentence recounts procedural steps in litigation, such as filing
+    claims, excepting to rulings, holding hearings, or issuing orders.
+- name: states_case_facts
+  type: noul
+  instructions: The sentence describes factual events involving the parties, such
+    as payments, hires, notices, or conduct.
+- name: critiques_other_opinion
+  type: noul
+  instructions: The sentence criticizes the reasoning of the majority, a dissent,
+    another Justice, or another court.
+- name: cites_case_law
+  type: noul
+  instructions: The sentence names or cites a judicial decision, such as Jones, Mullaney,
+    or Almendarez-Torres.
+- name: cites_statute_section
+  type: noul
+  instructions: The sentence cites a statute, code section, or named act, such as
+    28 U.S.C. § 1343 or the National Bank Act.
+- name: cites_secondary_source
+  type: noul
+  instructions: The sentence cites a treatise, law review, usage guide, abridgement,
+    encyclopedia, or commentator.
+- name: historical_term_usage
+  type: noul
+  instructions: The sentence addresses how a term was understood or recorded in dictionaries
+    or legal sources of a particular era.
+- name: statutory_word_interpretation
+  type: noul
+  instructions: The sentence concerns interpreting a specific word that appears in
+    a statute or legal text.
+- name: legal_term_of_art_focus
+  type: noul
+  instructions: The sentence centers on a legal term of art, such as 'accrue', 'debenture',
+    'treaty', or 'common law', as the subject of explanation.
+- name: quotes_legal_standard
+  type: noul
+  instructions: The sentence quotes a legal test, burden of proof, or rule from prior
+    case law as a requirement to apply.
+- name: classifies_under_term
+  type: noul
+  instructions: The sentence states that something falls within or would be classified
+    under a defined category or term based on its meaning.
+- name: explains_concept_origin
+  type: noul
+  instructions: The sentence explains the origin or original purpose of a legal concept
+    or institution, supported by a reference work.
+- name: explains_essential_nature
+  type: noul
+  instructions: The sentence explains the essential features or nature of a concept,
+    such as what a court fundamentally is.
+- name: lists_constituent_parts
+  type: noul
+  instructions: The sentence describes a concept by identifying its constituent parts
+    or components.
+- name: contrasts_alternative_words
+  type: noul
+  instructions: The sentence compares a chosen word with alternative words the drafters
+    could have used.
+- name: dictionary_reliance
+  type: score
+  instructions: How heavily does the sentence rely on dictionaries or reference works
+    for word meaning?
+  options:
+  - none
+  - passing
+  - substantial
+  - central
+  descriptions:
+  - dictionaries and reference works are absent
+  - a single brief reference to a dictionary
+  - dictionary content supports a key point
+  - the sentence is built around dictionary entries
+- name: ordinary_meaning_appeal
+  type: noul
+  instructions: The sentence appeals to the ordinary, common, or plain meaning of
+    a term, using phrases like 'commonly understood' or 'often used to mean'.
+- name: citation_type
+  type: choice
+  instructions: Pick the type of authority most prominently cited in the sentence.
+  options:
+  - dictionary
+  - case_law
+  - statute
+  - secondary_source
+  - uncited
+  descriptions:
+  - a dictionary or lexicon
+  - a court decision
+  - a statute, code, or act
+  - a treatise, article, or commentator
+  - the sentence cites no authority
+- name: reports_court_holding
+  type: noul
+  instructions: The sentence reports what a court held, ruled, or decided on a legal
+    issue.
+- name: rhetorical_dissent_tone
+  type: noul
+  instructions: The sentence uses argumentative or emotive language, such as 'stunning
+    slur' or 'feeble foundation'.
+- name: translates_latin_phrase
+  type: noul
+  instructions: The sentence translates or explains a Latin or foreign legal phrase.
+- name: debates_term_scope
+  type: noul
+  instructions: The sentence addresses whether a term's meaning includes or is limited
+    to certain things.
+- name: attributes_meaning_to_authority
+  type: noul
+  instructions: The sentence attributes a meaning or explanation of a term to a named
+    authority, such as 'Bouvier says' or 'the First Circuit noted'.
+- name: language_focus
+  type: score
+  instructions: How much is the sentence about words and their meanings versus substantive
+    legal or factual matters?
+  options:
+  - substantive_only
+  - mostly_substantive
+  - mixed
+  - mostly_linguistic
+  descriptions:
+  - entirely about facts, procedure, or legal substance
+  - mainly substantive with slight attention to wording
+  - balanced attention to wording and substance
+  - mainly about what words or concepts mean
+- name: specifies_sense_used
+  type: noul
+  instructions: The sentence specifies which sense of a word applies in a given context,
+    such as identifying the sense in which a word is used here.

@@ -1,0 +1,99 @@
+name: Sundr certify
+description: Certify that a cheaper model, or a changed prompt, agrees with your reference verdicts, and comment the result on the pull request.
+author: Sundr
+branding:
+  icon: check-circle
+  color: blue
+
+inputs:
+  evals:
+    description: JSONL or CSV of judgment calls with the input judged and the reference verdict (your current model's, or human labels).
+    required: true
+  candidate:
+    description: Model(s) to certify, as OpenRouter ids, comma-separated (e.g. openai/gpt-6-luna,anthropic/claude-haiku-5.5).
+    required: true
+  task:
+    description: Optional task.yaml (name, description, labels).
+    required: false
+  system-prompt-file:
+    description: Your system prompt, so the candidate is certified on the prompt in this pull request.
+    required: false
+  epsilon:
+    description: Error budgets, comma-separated.
+    default: "0.01,0.02,0.05"
+  require-coverage:
+    description: Fail the check unless the first candidate is certified for at least this share (0-1) at the smallest budget.
+    required: false
+  input-field:
+    default: input
+  verdict-field:
+    default: verdict
+  max-usd:
+    description: Spend cap for this run.
+    default: "2"
+  openrouter-api-key:
+    description: OpenRouter key used to ask the candidate models.
+    required: true
+  comment:
+    description: Comment the summary on the pull request.
+    default: "true"
+  sundr-ref:
+    description: Version of the open-source Sundr CLI to install (a git ref of sundr-ai/sundr-audit).
+    default: main
+
+outputs:
+  summary-file:
+    description: Path to the Markdown summary.
+    value: ${{ steps.certify.outputs.summary-file }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+    - name: Install Sundr
+      shell: bash
+      run: pip install --quiet "sundr @ git+https://github.com/sundr-ai/sundr-audit@${{ inputs.sundr-ref }}"
+    - name: Certify
+      id: certify
+      shell: bash
+      env:
+        OPENROUTER_API_KEY: ${{ inputs.openrouter-api-key }}
+        EVALS: ${{ inputs.evals }}
+        CANDIDATES: ${{ inputs.candidate }}
+        TASK: ${{ inputs.task }}
+        PROMPT: ${{ inputs.system-prompt-file }}
+        EPSILON: ${{ inputs.epsilon }}
+        REQUIRE: ${{ inputs.require-coverage }}
+        INPUT_FIELD: ${{ inputs.input-field }}
+        VERDICT_FIELD: ${{ inputs.verdict-field }}
+        MAX_USD: ${{ inputs.max-usd }}
+      run: |
+        args=("$EVALS" --markdown "$RUNNER_TEMP/sundr.md" --json "$RUNNER_TEMP/sundr.json" \
+              --input-field "$INPUT_FIELD" --verdict-field "$VERDICT_FIELD" --max-usd "$MAX_USD" \
+              --cache "$RUNNER_TEMP/sundr-cache.sqlite")
+        IFS=',' read -ra models <<< "$CANDIDATES"; for m in "${models[@]}"; do args+=(--candidate "$(echo "$m" | xargs)"); done
+        IFS=',' read -ra budgets <<< "$EPSILON"; for e in "${budgets[@]}"; do args+=(--epsilon "$(echo "$e" | xargs)"); done
+        [ -n "$TASK" ] && args+=(--task "$TASK")
+        [ -n "$PROMPT" ] && args+=(--system-prompt-file "$PROMPT")
+        [ -n "$REQUIRE" ] && args+=(--require-coverage "$REQUIRE")
+        set +e; sundr certify "${args[@]}"; status=$?; set -e
+        echo "summary-file=$RUNNER_TEMP/sundr.md" >> "$GITHUB_OUTPUT"
+        [ -f "$RUNNER_TEMP/sundr.md" ] && cat "$RUNNER_TEMP/sundr.md" >> "$GITHUB_STEP_SUMMARY"
+        echo "status=$status" >> "$GITHUB_OUTPUT"
+    - name: Comment on the pull request
+      if: github.event_name == 'pull_request' && inputs.comment == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        PR: ${{ github.event.pull_request.number }}
+        SUMMARY: ${{ steps.certify.outputs.summary-file }}
+      run: |
+        [ -f "$SUMMARY" ] || exit 0
+        gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY" --edit-last 2>/dev/null \
+          || gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY"
+    - name: Apply the coverage gate
+      if: steps.certify.outputs.status != '0'
+      shell: bash
+      run: exit 1

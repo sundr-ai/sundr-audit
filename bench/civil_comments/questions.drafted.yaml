@@ -1,0 +1,273 @@
+questions:
+- name: verdict
+  type: choice
+  instructions: 'You moderate comments on a news website. Decide whether the comment
+    is toxic: rude, disrespectful or unreasonable language likely to make someone
+    leave the discussion.'
+  options:
+  - toxic
+  - non_toxic
+  descriptions:
+  - rude, disrespectful or unreasonable; likely to drive people away
+  - acceptable for the discussion, even if critical or strongly worded
+- name: verdict_alt
+  type: choice
+  instructions: 'Which label best describes this text? Task: You moderate comments
+    on a news website. Decide whether the comment is toxic: rude, disrespectful or
+    unreasonable language likely to make someone leave the discussion.'
+  options:
+  - toxic
+  - non_toxic
+  descriptions:
+  - rude, disrespectful or unreasonable; likely to drive people away
+  - acceptable for the discussion, even if critical or strongly worded
+- name: verdict_mirror
+  type: noul
+  instructions: 'The correct label for this text is ''toxic''. Task: You moderate
+    comments on a news website. Decide whether the comment is toxic: rude, disrespectful
+    or unreasonable language likely to make someone leave the discussion.'
+- name: insult_word_present
+  type: noul
+  instructions: The comment contains an insulting word for a person, such as idiot,
+    moron, fool, dolt, stooge or loser.
+- name: insult_target
+  type: choice
+  instructions: Who is the main target of any insulting or demeaning language in the
+    comment?
+  options:
+  - nobody
+  - fellow_commenter
+  - public_figure
+  - social_group
+  - media_or_author
+  - general_public
+  descriptions:
+  - The comment contains zero insulting or demeaning language
+  - Another commenter or the reader addressed as you
+  - A named politician, official or celebrity
+  - A group defined by race, religion, gender, nationality or politics
+  - A newspaper, journalist or article writer
+  - A whole population, voters or citizens at large
+- name: profanity_level
+  type: score
+  instructions: Rate the strongest profane or obscene language used anywhere in the
+    comment.
+  options:
+  - clean
+  - mild_profanity
+  - strong_profanity
+  - obscene
+  descriptions:
+  - Contains zero swear words
+  - Mild words such as damn, hell or crap
+  - Strong swearing such as goddamn, son of a bitch or bullshit
+  - Explicit sexual, excretory or highly vulgar terms
+- name: vulgar_body_reference
+  type: noul
+  instructions: The comment refers crudely to genitals, bodily waste or sexual body
+    parts.
+- name: violence_advocated
+  type: noul
+  instructions: The comment advocates, encourages or wishes physical harm or mutilation
+    against someone.
+- name: direct_threat
+  type: noul
+  instructions: The comment threatens a specific person or group with harm.
+- name: identity_stereotype
+  type: noul
+  instructions: The comment attributes a negative trait or behavior to an entire group
+    defined by race, ethnicity, religion, gender or nationality.
+- name: political_group_generalization
+  type: noul
+  instructions: The comment makes a sweeping negative claim about an entire political
+    group, such as conservatives, liberals, Republicans or the left.
+- name: identity_category_mentioned
+  type: choice
+  instructions: Which identity category is most prominently mentioned in the comment?
+  options:
+  - identity_absent
+  - race_ethnicity
+  - religion
+  - gender_sexuality
+  - nationality
+  - political_affiliation
+  descriptions:
+  - The comment mentions zero identity groups
+  - Race or ethnicity, such as Black or white people
+  - A religion or religious group
+  - Women, men, LGBT people or sexuality
+  - A country's people as a group
+  - Party or ideological groups
+- name: derogatory_nickname
+  type: noul
+  instructions: The comment uses a mocking nickname for a named person, such as 'Agent
+    Orange' or 'Hairdoo'.
+- name: dehumanizing_language
+  type: noul
+  instructions: The comment compares people to animals, filth, objects or vermin,
+    or describes them as less than human.
+- name: traitor_label
+  type: noul
+  instructions: The comment labels people as traitors, criminals, Nazis or fascists.
+- name: hostile_second_person
+  type: noul
+  instructions: The comment addresses the reader or another commenter as 'you' in
+    a belittling or hostile way.
+- name: condescension_level
+  type: score
+  instructions: Rate how condescending the comment's tone is toward the people it
+    discusses or addresses.
+  options:
+  - respectful
+  - slightly_patronizing
+  - openly_belittling
+  descriptions:
+  - Treats others as equals
+  - Mild talking down or smug phrasing
+  - Explicitly treats others as stupid, laughable or beneath consideration
+- name: ridicule_present
+  type: noul
+  instructions: The comment ridicules or laughs at a person or their views, e.g. calling
+    them laughable.
+- name: sarcasm_present
+  type: noul
+  instructions: The comment uses sarcasm or ironic mockery.
+- name: hostility_intensity
+  type: score
+  instructions: Rate the overall emotional hostility expressed in the comment.
+  options:
+  - calm
+  - pointed
+  - angry
+  - enraged
+  descriptions:
+  - Neutral or friendly tone
+  - Critical or sharp but controlled
+  - Clearly angry with heated wording
+  - Furious, ranting, extreme anger
+- name: all_caps_shouting
+  type: noul
+  instructions: The comment uses capitalized words or phrases to shout at or berate
+    someone.
+- name: intelligence_attack
+  type: noul
+  instructions: The comment attacks a person's or group's intelligence, calling them
+    stupid, dumb, idiotic or ignorant.
+- name: dishonesty_accusation
+  type: noul
+  instructions: The comment calls a specific person a liar or accuses them of cheating.
+- name: stupid_descriptor
+  type: noul
+  instructions: The comment uses words like stupid, idiotic, moronic or stupidity
+    to describe actions, decisions or ideas.
+- name: critique_focus
+  type: choice
+  instructions: What does the comment's criticism mainly focus on?
+  options:
+  - neutral_content
+  - ideas_or_policies
+  - persons_character
+  - mixed
+  descriptions:
+  - The comment contains little or zero criticism
+  - Criticizes arguments, policies, institutions or actions
+  - Attacks the character, intelligence or worth of people
+  - Combines criticism of ideas with personal attacks
+- name: content_type
+  type: choice
+  instructions: Which best describes the main form of the comment?
+  options:
+  - news_or_fact
+  - reasoned_opinion
+  - question
+  - quip
+  - rant
+  descriptions:
+  - Reports news, quotes a source or states a factual claim
+  - Argues a viewpoint with some reasoning
+  - Mainly asks a question
+  - A brief witty or sarcastic remark
+  - An extended emotional tirade
+- name: reasons_given
+  type: noul
+  instructions: The comment offers reasons, evidence or examples to support its claims.
+- name: conspiracy_claim
+  type: noul
+  instructions: The comment asserts a conspiracy or secret collusion by officials,
+    media or groups.
+- name: identity_slur
+  type: noul
+  instructions: The comment contains a slur targeting a race, religion, gender, sexuality
+    or nationality.
+- name: sexual_content
+  type: noul
+  instructions: The comment contains sexual references or sexually suggestive language.
+- name: character_attack_severity
+  type: score
+  instructions: Rate the harshest personal disparagement of any person or group in
+    the comment.
+  options:
+  - absent
+  - mild_disparagement
+  - harsh_insult
+  - extreme_degradation
+  descriptions:
+  - Zero personal disparagement
+  - Mild labels like hypocrite or sycophant
+  - Direct insults like idiot, moron or liar
+  - Degrading attacks like piece of feces or lump of hideousness
+- name: deserved_suffering
+  type: noul
+  instructions: The comment says victims or a population deserve their misfortune,
+    or that it is their own fault.
+- name: collective_contempt
+  type: noul
+  instructions: The comment expresses contempt for an entire nation or population,
+    calling them abject, deplorable or similar.
+- name: offensive_quote_only
+  type: noul
+  instructions: The comment's offensive words appear inside a quotation attributed
+    to someone else.
+- name: named_politician
+  type: noul
+  instructions: The comment mentions a named politician or public official.
+- name: courtesy_markers
+  type: noul
+  instructions: The comment includes courteous expressions such as thanks, please,
+    best of luck or polite agreement.
+- name: opens_with_agreement
+  type: noul
+  instructions: The comment begins by agreeing with another person, e.g. 'You're right'.
+- name: derogatory_partisan_term
+  type: noul
+  instructions: The comment uses a derogatory label for political opponents, such
+    as sycophants, cult members, snowflakes or deadbeats.
+- name: moral_condemnation
+  type: noul
+  instructions: The comment condemns people as evil, corrupt, racist or hateful.
+- name: mental_illness_slur
+  type: noul
+  instructions: The comment uses words like crazy, insane, lunatic or pathological
+    to disparage people.
+- name: headline_style
+  type: noul
+  instructions: The comment reads like a neutral headline, news summary or factual
+    statement.
+- name: commenter_dismissal
+  type: noul
+  instructions: The comment dismisses other commenters as trolls, bots, paid operatives
+    or unworthy of being heard.
+- name: personal_attack_likelihood
+  type: score
+  instructions: Rate how likely a reader belonging to the discussed group or side
+    would feel personally attacked.
+  options:
+  - unlikely
+  - possible
+  - likely
+  - very_likely
+  descriptions:
+  - Content is neutral or respectful
+  - Some sharp criticism a reader might resent
+  - Clear disrespect toward the reader's group or side
+  - Openly hostile, demeaning or abusive

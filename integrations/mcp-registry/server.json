@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.sundr-ai/sundr",
+  "title": "Sundr Savings Audit",
+  "description": "Find LLM judgment calls and certify how many a cheap decision model could answer.",
+  "version": "0.1.0",
+  "websiteUrl": "https://sundr.ai",
+  "repository": {
+    "url": "https://github.com/sundr-ai/sundr-audit",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "sundr",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "runtimeArguments": [
+        { "type": "named", "name": "--with", "value": "mcp>=1.0" }
+      ],
+      "packageArguments": [
+        { "type": "positional", "value": "mcp" }
+      ],
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "OPENROUTER_API_KEY", "description": "Jev through OpenRouter, for local audits", "isRequired": false, "isSecret": true },
+        { "name": "TYPESAFE_API_KEY", "description": "Jev direct, for local audits", "isRequired": false, "isSecret": true },
+        { "name": "CLOUDFLARE_ACCOUNT_ID", "description": "Clef-flash on Workers AI, for local audits", "isRequired": false, "isSecret": false },
+        { "name": "CLOUDFLARE_AUTH_TOKEN", "description": "Clef-flash on Workers AI, for local audits", "isRequired": false, "isSecret": true },
+        { "name": "ANTHROPIC_API_KEY", "description": "Optional question drafting with Claude", "isRequired": false, "isSecret": true },
+        { "name": "SUNDR_KEY", "description": "Sundr workspace key, for the proxy control tools", "isRequired": false, "isSecret": true }
+      ]
+    }
+  ]
+}

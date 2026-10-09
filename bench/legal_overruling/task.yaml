@@ -1,0 +1,6 @@
+name: legal_overruling
+description: Does the sentence from a court opinion contain language overruling a previous case?
+labels: ["Yes", "No"]
+label_descriptions:
+  "Yes": the sentence overrules, disapproves or abrogates an earlier decision
+  "No": the sentence does something else, such as citing, distinguishing or applying precedent

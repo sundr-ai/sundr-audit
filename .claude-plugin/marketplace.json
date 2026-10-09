@@ -1,0 +1,17 @@
+{
+  "name": "sundr",
+  "owner": {
+    "name": "Sundr",
+    "email": "hello@sundr.ai",
+    "url": "https://sundr.ai"
+  },
+  "plugins": [
+    {
+      "name": "sundr",
+      "source": "./integrations/claude-code",
+      "description": "Find the LLM judgment calls in a codebase and measure how many a cheap decision model could answer within a certified error budget, locally or on sundr.ai.",
+      "category": "development",
+      "tags": ["llm", "cost", "classification", "audit", "mcp"]
+    }
+  ]
+}

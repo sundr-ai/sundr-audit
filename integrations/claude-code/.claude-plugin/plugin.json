@@ -1,0 +1,14 @@
+{
+  "name": "sundr",
+  "version": "0.1.0",
+  "description": "Find the LLM judgment calls in a codebase (classification, routing, moderation, LLM-as-judge) and measure how many a cheap decision model could answer within a certified error budget. Runs the Savings Audit locally with your own keys, or on sundr.ai once you approve the upload.",
+  "author": {
+    "name": "Sundr",
+    "email": "hello@sundr.ai",
+    "url": "https://sundr.ai"
+  },
+  "homepage": "https://sundr.ai",
+  "repository": "https://github.com/sundr-ai/sundr-audit",
+  "license": "MIT",
+  "keywords": ["llm", "cost", "classification", "llm-as-judge", "structured-output", "audit", "mcp"]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sundr": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/sundr-ai/sundr-audit", "--with", "mcp>=1.0", "sundr", "mcp"]
+    }
+  }
+}

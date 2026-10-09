@@ -1,0 +1,19 @@
+questions:
+- name: sig_explains_meaning
+  type: noul
+  instructions: The sentence explains what a particular word or phrase means.
+- name: sig_dictionary
+  type: noul
+  instructions: The sentence quotes or cites a dictionary or a statutory definition.
+- name: sig_definitional_phrase
+  type: noul
+  instructions: The sentence uses a phrase such as 'means', 'refers to', 'is defined as' or 'the term'.
+- name: sig_quoted_term
+  type: noul
+  instructions: The sentence puts a word or phrase in quotation marks in order to discuss it.
+- name: sig_applies_rule
+  type: noul
+  instructions: The sentence applies a legal rule to the facts of the case.
+- name: sig_procedural_history
+  type: noul
+  instructions: The sentence describes the procedural history of the case.

@@ -1,0 +1,8 @@
+name: phishing
+description: >-
+  You are an email security assistant. Read the email (sender, from address, subject, body, link text and link URL)
+  and decide whether it is a phishing attempt whose link the user should not click, or a legitimate email.
+labels: [phishing, legitimate]
+label_descriptions:
+  phishing: a phishing or malicious email; the user should not click its link
+  legitimate: a genuine email whose link is safe to click

@@ -1,0 +1,185 @@
+questions:
+- name: verdict_mirror
+  type: noul
+  instructions: 'The correct label for this text is ''Yes''. Task: Does the sentence
+    from a court opinion contain language overruling a previous case?'
+- name: overrule_verb_on_case
+  type: noul
+  instructions: The sentence uses a form of the verb 'overrule' whose object is a
+    prior case, decision, holding, opinion or statement from earlier case law.
+- name: overrule_verb_on_motion
+  type: noul
+  instructions: The sentence uses 'overrule' or 'overruled' to dispose of a party's
+    objection, motion, or assignment of error in the present case.
+- name: disapprove_verb
+  type: noul
+  instructions: The sentence uses a form of 'disapprove' directed at a prior case,
+    decision or language from a prior opinion.
+- name: recede_verb
+  type: noul
+  instructions: The sentence states that the court recedes from a prior case, statement
+    or suggestion.
+- name: decline_to_follow
+  type: noul
+  instructions: The sentence states that the court declines to follow a prior decision.
+- name: abrogate_verb
+  type: noul
+  instructions: The sentence uses a form of 'abrogate' or 'supersede' in reference
+    to a prior decision.
+- name: to_extent_inconsistent
+  type: noul
+  instructions: The sentence contains a limiting phrase such as 'to the extent', 'insofar
+    as' or 'to that extent' tying a prior authority to inconsistency with the present
+    holding.
+- name: holding_to_contrary_phrase
+  type: noul
+  instructions: The sentence refers to a prior court holding 'to the contrary' or
+    otherwise contrary to the current conclusion.
+- name: hereby_performative
+  type: noul
+  instructions: The sentence uses a performative marker like 'hereby', 'now hold',
+    or 'we therefore' announcing an action the court takes in this opinion.
+- name: declares_precedent_wrong
+  type: noul
+  instructions: The sentence declares a prior case incorrect, erroneous, or contradicting
+    sound reasoning.
+- name: court_own_precedent
+  type: noul
+  instructions: The sentence refers to the court's own prior decision using possessive
+    language such as 'our holding', 'our decision', or 'this court's holding'.
+- name: lower_court_decision_targeted
+  type: noul
+  instructions: The sentence addresses a decision of an intermediate appellate court
+    or court of appeals as authority the present court rejects.
+- name: names_prior_case
+  type: noul
+  instructions: The sentence mentions a prior case by party name (e.g., 'chaney',
+    'state v. gray').
+- name: full_reporter_citation
+  type: noul
+  instructions: The sentence contains a reporter citation with volume and page numbers
+    (e.g., '84 cal.app.3d 1').
+- name: see_signal
+  type: noul
+  instructions: The sentence begins with or contains a citation signal such as 'see',
+    'see, e.g.', 'cf.' or 'citing'.
+- name: citation_parenthetical
+  type: noul
+  instructions: The sentence includes a parenthetical describing or quoting a cited
+    case, such as '(per curiam)' or '(marshall, j., dissenting)'.
+- name: quotes_rule_text
+  type: noul
+  instructions: The sentence quotes a statute, rule of evidence, or prior opinion's
+    language to state a legal rule.
+- name: states_legal_standard
+  type: noul
+  instructions: The sentence explains a legal test, standard of review, or doctrinal
+    requirement.
+- name: recites_case_facts
+  type: noul
+  instructions: The sentence narrates facts of the dispute, such as events, testimony,
+    or what parties did.
+- name: procedural_history
+  type: noul
+  instructions: The sentence describes procedural events in the present case such
+    as charges, trial, motions filed, or rulings by the trial court.
+- name: party_argument
+  type: noul
+  instructions: The sentence describes or responds to an argument made by a party.
+- name: distinguishes_precedent
+  type: noul
+  instructions: The sentence contrasts the present case with a prior case to show
+    the prior case is inapplicable on its facts.
+- name: applies_precedent
+  type: noul
+  instructions: The sentence relies on a prior case as authority supporting the court's
+    reasoning.
+- name: separate_opinion_label
+  type: noul
+  instructions: The text is a heading or label for a dissent or concurrence, or attributes
+    the statement to a dissenting or concurring judge.
+- name: disposition_words
+  type: noul
+  instructions: The sentence contains disposition terms such as affirm, reverse, remand,
+    deny, or writ denied applied to the present case.
+- name: waiver_or_forfeiture
+  type: noul
+  instructions: The sentence finds an issue waived, forfeited, or unpreserved.
+- name: reverses_prior_approval
+  type: noul
+  instructions: The sentence contrasts something the court once approved or allowed
+    with its present rejection of it.
+- name: lists_multiple_cases_rejected
+  type: noul
+  instructions: The sentence names or introduces a list of several prior cases treated
+    as rejected or superseded.
+- name: describes_court_split
+  type: noul
+  instructions: The sentence describes different courts reaching opposing holdings
+    on the same legal question.
+- name: truncated_sentence
+  type: noul
+  instructions: The text appears cut off or incomplete, ending mid-phrase or starting
+    mid-word.
+- name: primary_function
+  type: choice
+  instructions: Select the main thing the sentence does with respect to legal authority.
+  options:
+  - rejects_precedent
+  - cites_authority
+  - distinguishes_case
+  - states_rule
+  - narrates_facts
+  - reports_procedure
+  - criticizes_precedent
+  descriptions:
+  - Overrules, disapproves, recedes from, or declines to follow a prior decision
+  - Gives a citation or relies on a case as support
+  - Explains why a prior case differs from this one
+  - States a legal standard or quotes law
+  - Describes events or evidence in the dispute
+  - Describes motions, rulings, or dispositions in this case
+  - Faults a prior case while stopping short of rejecting it
+- name: rejection_strength
+  type: score
+  instructions: Rate how strongly the sentence acts against a prior judicial decision.
+  options:
+  - none
+  - mild_criticism
+  - partial_limitation
+  - full_rejection
+  descriptions:
+  - Sentence takes no stance against any prior decision
+  - Sentence questions or criticizes a prior decision
+  - Sentence rejects a prior decision only to a stated extent or for specific language
+  - Sentence rejects a prior decision outright
+- name: overrule_object_type
+  type: choice
+  instructions: Identify what the sentence rules against, if anything.
+  options:
+  - nothing_ruled_against
+  - prior_case_law
+  - party_request
+  - lower_court_ruling_in_this_case
+  descriptions:
+  - Sentence rules against nothing
+  - A precedent or language from an earlier opinion
+  - An objection, motion, or assignment of error by a party
+  - The trial court's ruling under review in this case
+- name: speaker_voice
+  type: choice
+  instructions: Identify whose voice the sentence chiefly expresses.
+  options:
+  - deciding_court
+  - party
+  - other_court
+  - neutral_citation
+  descriptions:
+  - The authoring court speaking for itself, e.g. 'we'
+  - A litigant's contention or conduct
+  - A different court's statement or holding
+  - A citation string with no speaker
+- name: forward_looking_directive
+  type: noul
+  instructions: The sentence tells courts how to treat a prior authority going forward,
+    such as stating it should cease to be followed.

@@ -1,0 +1,32 @@
+questions:
+- name: sig_insult
+  type: noul
+  instructions: The comment insults or demeans a specific person or group.
+- name: sig_name_calling
+  type: noul
+  instructions: The comment calls someone a derogatory name such as idiot, moron or loser.
+- name: sig_profanity
+  type: noul
+  instructions: The comment contains profanity or obscene language.
+- name: sig_threat
+  type: noul
+  instructions: The comment threatens or wishes physical harm on someone.
+- name: sig_identity_attack
+  type: noul
+  instructions: The comment attacks people because of their race, religion, gender, sexuality, nationality or disability.
+- name: sig_sexual
+  type: noul
+  instructions: The comment contains sexually explicit content.
+- name: sig_mocking
+  type: noul
+  instructions: The comment mocks or ridicules someone.
+- name: sig_respectful_disagreement
+  type: noul
+  instructions: The comment disagrees with an idea or policy while staying respectful toward people.
+- name: sig_politics
+  type: noul
+  instructions: The comment discusses politics, politicians or public policy.
+- name: hostility
+  type: score
+  instructions: How hostile is the tone of the comment?
+  options: [calm, mildly heated, angry, abusive]

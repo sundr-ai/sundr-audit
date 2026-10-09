@@ -1,0 +1,44 @@
+questions:
+- name: sig_sender_domain_mismatch
+  type: noul
+  instructions: The sender's display name or claimed organisation belongs to a different organisation than the domain of the 'from' address.
+- name: sig_link_domain_mismatch
+  type: noul
+  instructions: The link's destination domain belongs to a different organisation than the sender's email domain.
+- name: sig_free_hosting
+  type: noul
+  instructions: The link points to a free web-hosting, file-sharing, form-builder or URL-shortening service.
+- name: sig_odd_url
+  type: noul
+  instructions: The link URL uses a raw IP address, a long random-looking path, or a misspelled brand name.
+- name: sig_display_text_mismatch
+  type: noul
+  instructions: The link's display text names a different website than the URL it actually points to.
+- name: sig_lure
+  type: noul
+  instructions: The email offers a prize, refund, payment or reward.
+- name: sig_urgency
+  type: noul
+  instructions: The email pressures the reader to act immediately or warns that an account will be suspended.
+- name: sig_credentials
+  type: noul
+  instructions: The email asks the reader to sign in, verify an account, or confirm personal or payment details.
+- name: sig_free_mail_business
+  type: noul
+  instructions: The sender claims to represent a business while writing from a free consumer email provider or an automatically generated address.
+- name: sig_generic_greeting
+  type: noul
+  instructions: The email greets the reader generically, such as 'Dear customer', instead of by name.
+- name: sig_brand_impersonation
+  type: noul
+  instructions: The email claims to come from a well-known brand, bank, delivery company or online service.
+- name: sig_routine_business
+  type: noul
+  instructions: The email reads like routine correspondence between colleagues or within an established business relationship.
+- name: sig_reputable_link
+  type: noul
+  instructions: The link points to a widely known, reputable domain such as a major company's official website.
+- name: suspicion
+  type: score
+  instructions: How suspicious would a careful security analyst find this email overall?
+  options: [routine, slightly unusual, moderately suspicious, highly suspicious]

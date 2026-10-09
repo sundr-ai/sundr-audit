@@ -1,0 +1,39 @@
+questions:
+- name: a_correct
+  type: noul
+  instructions: Assistant A's final answer is factually and logically correct.
+- name: b_correct
+  type: noul
+  instructions: Assistant B's final answer is factually and logically correct.
+- name: a_follows_instructions
+  type: noul
+  instructions: Assistant A's final answer follows every instruction in the user's latest request, including format and length.
+- name: b_follows_instructions
+  type: noul
+  instructions: Assistant B's final answer follows every instruction in the user's latest request, including format and length.
+- name: a_refuses
+  type: noul
+  instructions: Assistant A refuses, deflects or answers a different question than the one asked.
+- name: b_refuses
+  type: noul
+  instructions: Assistant B refuses, deflects or answers a different question than the one asked.
+- name: a_more_detailed
+  type: noul
+  instructions: Assistant A's final answer is more thorough and detailed than Assistant B's.
+- name: a_more_helpful
+  type: noul
+  instructions: A typical user would find Assistant A's final answer more helpful than Assistant B's.
+- name: b_more_helpful
+  type: noul
+  instructions: A typical user would find Assistant B's final answer more helpful than Assistant A's.
+- name: similar_quality
+  type: noul
+  instructions: The two final answers are of very similar quality.
+- name: a_quality
+  type: score
+  instructions: Rate the overall quality of Assistant A's final answer.
+  options: [poor, fair, good, excellent]
+- name: b_quality
+  type: score
+  instructions: Rate the overall quality of Assistant B's final answer.
+  options: [poor, fair, good, excellent]

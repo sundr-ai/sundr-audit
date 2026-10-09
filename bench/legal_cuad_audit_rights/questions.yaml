@@ -1,0 +1,22 @@
+questions:
+- name: sig_audit_right
+  type: noul
+  instructions: The clause grants a party the right to inspect or audit the other party's books, records, accounts or facilities.
+- name: sig_record_keeping
+  type: noul
+  instructions: The clause requires a party to keep books, records or accounts.
+- name: sig_audit_costs
+  type: noul
+  instructions: The clause allocates the cost of an audit or inspection between the parties.
+- name: sig_access_premises
+  type: noul
+  instructions: The clause gives a party access to the other party's premises, plants or facilities.
+- name: sig_payments
+  type: noul
+  instructions: The clause concerns payments, royalties, fees or invoices.
+- name: sig_confidentiality
+  type: noul
+  instructions: The clause concerns keeping information confidential.
+- name: sig_termination
+  type: noul
+  instructions: The clause concerns termination or expiry of the agreement.

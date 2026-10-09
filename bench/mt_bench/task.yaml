@@ -1,0 +1,10 @@
+name: mt_bench
+description: >-
+  You judge two AI assistants' answers to the same user question. Decide which assistant answered the user's
+  final question better, considering helpfulness, accuracy, relevance, depth and instruction-following, or
+  whether they are about equally good.
+labels: [model_a, model_b, tie]
+label_descriptions:
+  model_a: Assistant A's answer is better
+  model_b: Assistant B's answer is better
+  tie: both answers are about equally good
